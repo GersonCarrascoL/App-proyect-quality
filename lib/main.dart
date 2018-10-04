@@ -9,8 +9,6 @@ void main() {
   // runApp(new MyApp());
 }
 
-/* COLORS */
-
 class MyApp extends StatelessWidget {
   final String _appTitle = 'Calidad proyecto';
   // This widget is the root of your application.
@@ -28,13 +26,13 @@ class MyApp extends StatelessWidget {
         buttonColor: Colors.purple,
         errorColor: Colors.blue,
         hintColor: Colors.white,
-        inputDecorationTheme: new InputDecorationTheme(
-          border: OutlineInputBorder(
-            borderRadius: new BorderRadius.all(Radius.circular(0.0)),
-          ),
-          fillColor: Colors.white,
-          filled:true
-        ), 
+        // inputDecorationTheme: new InputDecorationTheme(
+        //   border: OutlineInputBorder(
+        //     borderRadius: new BorderRadius.all(Radius.circular(0.0)),
+        //   ),
+        //   fillColor: Colors.white,
+        //   filled:true
+        // ), 
       ),
       home: new LoginPage(title: 'Flutter Demo Home Page'),
     );
@@ -60,10 +58,13 @@ class _LoginState extends State<LoginPage> {
     return new Scaffold(
       body: new Container(
         decoration: new BoxDecoration(
-          image: new DecorationImage(
-            image: new AssetImage("assets/images/background-login.jpg"),
-            fit:BoxFit.cover
-          )
+          gradient: new LinearGradient(
+            colors:[ const Color(0xFF00796B),const Color(0xFF00BCD4)],
+            begin: FractionalOffset.topCenter,
+            end:FractionalOffset.bottomCenter,
+            stops:[0.0,1.0],
+            tileMode:TileMode.clamp
+          ),
         ),
         child: new Form(
           key: _formKey,
