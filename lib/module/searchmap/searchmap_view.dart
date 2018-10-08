@@ -21,7 +21,7 @@ class _MainMapPageSate extends State<MainMapPage>{
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(),
+      // appBar: new AppBar(),
       body: new Stack(
           children: <Widget>[
           new GoogleMap(
@@ -30,21 +30,31 @@ class _MainMapPageSate extends State<MainMapPage>{
           new Container(
             alignment: Alignment.topCenter,
             padding: new EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * .5,
+                top: MediaQuery.of(context).size.height * .05,
                 right: 20.0,
                 left: 20.0),
             child: new Container(
-              height: 80.0,
+              height: 50.0,
               width: MediaQuery.of(context).size.width,
-              child: new Card(
-                child: new TextField(),
-                color: Colors.red,
+              child:new Card(
+                // margin: new EdgeInsets.all(20.0),
+                child: _textFieldSearch(),
+                color: Colors.white,
                 elevation: 4.0,
               ),
+              )
             ),
-          )
         ],
       )
+    );
+  }
+
+  Widget _textFieldSearch(){
+    return new TextField(
+      decoration: new InputDecoration(
+        hintText: 'Buscar',
+        suffixIcon: new Icon(Icons.search,color:Colors.black)
+      ),
     );
   }
 

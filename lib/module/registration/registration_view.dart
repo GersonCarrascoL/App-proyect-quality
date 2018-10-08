@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'colors.dart';
+import 'package:caliproy/colors.dart';
 
 class RegistrationPage extends StatefulWidget{
   _RegistrationState createState() => new _RegistrationState();
@@ -17,12 +17,11 @@ class _RegistrationState extends State<RegistrationPage>{
   Widget build(BuildContext context) {
     return new  Scaffold(
       appBar: new AppBar(
-        title: new Text(_titleBar),
+        title: new Text(_titleBar,style:new TextStyle(color:Colors.white),),
         centerTitle: true,
       ),
       body: new Container(
         decoration: new BoxDecoration(
-          // color: Colors.purple
         ),
         padding: new EdgeInsets.only(top: 15.0,left: 40.0,right: 40.0),
         child: new Form(
@@ -69,8 +68,7 @@ class _RegistrationState extends State<RegistrationPage>{
                   new Expanded(
                     child:new Text('Sexo')
                   ),
-                  new Expanded(
-                  child:new DropdownButton(
+                  new DropdownButton(
                     items:<String>['M','F'].map((String value){
                       return new DropdownMenuItem<String>(
                         value: value,
@@ -85,7 +83,6 @@ class _RegistrationState extends State<RegistrationPage>{
                       });
                     },
                   ),
-                  )
                 ]
               ),
               
@@ -94,25 +91,23 @@ class _RegistrationState extends State<RegistrationPage>{
                   new Expanded(
                     child:new Text('Distrito')
                   ),
-                  new Expanded(
-                    child: new DropdownButton(
-                      items:<String>['Lima','Callao'].map((String value){
-                        return new DropdownMenuItem<String>(
-                          value: value,
-                          child: new Text(value),
-                        );
-                      }).toList(),
-                      hint:new Text('Selecciona opción'),
-                      value: selDistrict,
-                      onChanged: (value){
-                        print("Seleccionado $value");
-                        selDistrict = value;
-                        setState(() {             
-                        });
-                      },
-                      
-                    ),
-                  )
+                  new DropdownButton(
+                    items:<String>['Lima','Callao'].map((String value){
+                      return new DropdownMenuItem<String>(
+                        value: value,
+                        child: new Text(value),
+                      );
+                    }).toList(),
+                    hint:new Text('Selecciona opción'),
+                    value: selDistrict,
+                    onChanged: (value){
+                      print("Seleccionado $value");
+                      selDistrict = value;
+                      setState(() {             
+                      });
+                    },
+                    
+                  ),
                 ],
               ),
                new Row(
@@ -120,23 +115,21 @@ class _RegistrationState extends State<RegistrationPage>{
                   new Expanded(
                     child:new Text('Ocupacion')
                   ),
-                  new Expanded(
-                    child: new DropdownButton(
-                      items:<String>['Estudiante','Profesor'].map((String value){
-                        return new DropdownMenuItem<String>(
-                          value: value,
-                          child: new Text(value),
-                        );
-                      }).toList(),
-                      value: selOcupation,
-                      hint: new Text('Selecciona opción'),
-                      onChanged: (value){
-                        selOcupation = value;
-                        setState((){
-                        });
-                      },
-                    ),
-                  )
+                  new DropdownButton(
+                    items:<String>['Estudiante','Profesor'].map((String value){
+                      return new DropdownMenuItem<String>(
+                        value: value,
+                        child: new Text(value),
+                      );
+                    }).toList(),
+                    value: selOcupation,
+                    hint: new Text('Selecciona opción'),
+                    onChanged: (value){
+                      selOcupation = value;
+                      setState((){
+                      });
+                    },
+                  ),
                 ],
               ),
                new Row(
@@ -144,8 +137,8 @@ class _RegistrationState extends State<RegistrationPage>{
                   new Expanded(
                     child: new Text('Grado Educativo')
                   ),
-                  new Expanded(
-                    child :new DropdownButton(
+                  
+                    new DropdownButton(
                       items:<String>['Primaria','Secundaria'].map((String value){
                         return new DropdownMenuItem<String>(
                           value: value,
@@ -160,12 +153,12 @@ class _RegistrationState extends State<RegistrationPage>{
                         });
                       },
                     ),
-                  )
+                  
                 ],
               ),
               new Container(
                 child:new RaisedButton(
-                  child: new Text('REGISTRAR',style:new TextStyle(color:tbackgroundColor,fontSize: 20.0)),
+                  child: new Text('REGISTRAR',style:new TextStyle(color:Colors.white,fontSize: 20.0)),
                   padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 15.0),
                   onPressed:(){
                     Navigator.of(context).pop(true);
