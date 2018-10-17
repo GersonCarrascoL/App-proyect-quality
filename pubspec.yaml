@@ -25,6 +25,7 @@ dependencies:
      url: git://github.com/flutter/plugins
      path: packages/google_maps_flutter
   dio: 1.0.0
+  geolocation: ^0.2.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

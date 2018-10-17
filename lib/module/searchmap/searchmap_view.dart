@@ -1,6 +1,7 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+// import 'package:geolocation/geolocation.dart';
 
 // var myKey = 'AIzaSyAohyz0ihWkHkPgQXCk1iNr72QHol0uSbQ';
 class MainMapPage extends StatefulWidget{
@@ -18,6 +19,18 @@ class _MainMapPageSate extends State<MainMapPage>{
   Widget _appTitleBar = new Text('Search');
   
   GoogleMapController mapController;
+  GoogleMapOptions mapOptions = GoogleMapOptions(
+    cameraPosition: const CameraPosition(
+      target: LatLng(-33.852, 151.211),
+      zoom: 15.0
+    ),
+    trackCameraPosition: true,
+    compassEnabled: true,
+  );
+
+  // getPermission() async{
+  //   final Geolocation result = await Geolocation.re
+  // }
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -25,7 +38,8 @@ class _MainMapPageSate extends State<MainMapPage>{
       body: new Stack(
           children: <Widget>[
           new GoogleMap(
-            onMapCreated:_onMapCreated
+            onMapCreated:_onMapCreated,
+            options: mapOptions,
           ),
           new Container(
             alignment: Alignment.topCenter,
@@ -60,21 +74,22 @@ class _MainMapPageSate extends State<MainMapPage>{
 
   /* ///////////////FUNCTIONS MAPS/////////////// */
   void _onMapCreated(GoogleMapController controller) {
+
     setState(() { mapController = controller; });
   }
 
   /* ///////////////FUNCTIONS SEARCH BAR/////////////// */
-  void _getNamesApi() async{
-    final response = await dio.get('https://swapi.co/api/people');
-    List tempList = new List();
+  // void _getNamesApi() async{
+  //   final response = await dio.get('https://swapi.co/api/people');
+  //   List tempList = new List();
 
-    for (var i = 0; i < response.data['results'] ; i++) {
-      tempList.add(response.data['results'][i]);
-    }
+  //   for (var i = 0; i < response.data['results'] ; i++) {
+  //     tempList.add(response.data['results'][i]);
+  //   }
 
-    setState(() {
-          names = tempList;
-          filteredNames = names;
-        });
-  }
+  //   setState(() {
+  //         names = tempList;
+  //         filteredNames = names;
+  //       });
+  // }
 }
